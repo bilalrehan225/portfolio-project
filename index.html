@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Home</title>
+    <link rel="shortcut icon" href="https://i.pinimg.com/736x/8e/33/a3/8e33a3fdaca7769720dd0ce444dbe8b7.jpg"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url("https://i.pinimg.com/1200x/7e/bb/c3/7ebbc36056060346e0560f7ace5b7fb6.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            padding: 18px 40px;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav h2 {
+            color: white;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        li {
+            list-style: none;
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #00adb5;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 120px 10vw 80px 10vw;
+            min-height: 80vh;
+        }
+
+        .heading {
+            font-size: clamp(30px, 5vw, 55px);
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+
+        .name {
+            font-size: clamp(25px, 4vw, 45px);
+            color: #00adb5;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            max-width: 600px;
+            color: #ddd;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            background-color: #00adb5;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #00888f;
+            transform: translateY(-2px);
+        }
+
+        /* About / Services Section Preview */
+        .services-section {
+            padding: 130px 10vw;
+            background: rgba(15, 15, 15, 0.85);
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00adb5;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #00adb5;
+        }
+
+        .card p {
+            color: #ccc;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* Responsive Media Query for Mobile Screens */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-desc {
+                text-align: center;
+            }
+        }
+
+        .contact {
+            height: 50vh;
+            width: auto;
+        }
+
+        .contact h2 {
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 25px;
+        }
+
+        input {
+            margin-bottom: 5px;
+            padding: 10px;
+            width: 30vw;
+        }
+
+        .reason {
+            width: 30vw;
+            height: 20vh;
+        }
+
+        .submit {
+            width: 10vw;
+            cursor: pointer;
+            background-color: rgb(41, 41, 197);
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgb(34, 34, 124);
+        }
+
+        .submit:hover {
+            background-color: rgb(0, 0, 199);
+            transform: scale(1.01);
+            transition: 0.25s all ease-in-out;
+        }
+
+        input:hover {
+            background-color: rgb(247, 247, 247);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Modern Modified Footer Section */
+        .footer {
+            background-color: rgba(10, 10, 10, 0.95);
+            color: #ccc;
+            padding: 50px 20px 20px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer h3 {
+            color: white;
+            letter-spacing: 1px;
+            font-size: 22px;
+        }
+
+        .footer p {
+            font-size: 15px;
+            color: #aaa;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+            color: #777;
+            width: 100%;
+        }
+
+        .footer-bottom span {
+            color: #00adb5;
+            font-weight: 600;
+        }
+        .usernamee {
+            font-size: 18px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: #00adb5;
+            background: rgba(0, 173, 181, 0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 173, 181, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .usernamee:hover {
+            background: rgba(0, 173, 181, 0.25);
+            border-color: rgba(0, 173, 181, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 173, 181, 0.3);
+        }
+
+        .changebtn {
+            font-size: 18px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: #ff4d4d;
+            background: rgba(255, 77, 77, 0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 77, 77, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .changebtn:hover {
+            background: rgba(255, 77, 77, 0.25);
+            border-color: rgba(255, 77, 77, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h2 class="pgreload">BILAL.DEV</h2>
+        <div class="userattractions" style="display: flex; gap: 1vw;">
+            <div class="usernamee">....</div>
+            <div class="usernamee changebtn">Change Name</div>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="portfolio - About.html">About</a></li>
+            <li><a href="#servicespro">Services</a></li>
+            <li><a href="#contacts">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h2 class="heading">FRONTEND DEVELOPER</h2>
+        <h2 class="name">M. Bilal Rehan</h2>
+        <p class="hero-desc">I build exceptional and responsive digital experiences, turning creative designs into
+            clean, high-performance web applications.</p>
+        <a href="#contacts" class="btn">Get In Touch</a>
+    </section>
+
+    <section class="services-section" id="servicespro">
+        <h2 class="section-title">What I Do</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Web Design</h3>
+                <p>Creating modern, user-friendly layouts tailored to give your audience a seamless visual experience.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Responsive UI</h3>
+                <p>Ensuring your website looks incredible and functions smoothly across all devices, from mobile phones
+                    to desktops.</p>
+            </div>
+            <div class="card">
+                <h3>Clean Code</h3>
+                <p>Writing organized HTML, CSS, and JavaScript structured for easy maintenance, scalability, and fast
+                    loading times.</p>
+            </div>
+        </div><br>
+        <section class="contact" id="contacts">
+            <h2>Contact Me :</h2>
+            <center>
+                <form id="my-form" action="https://formspree.io/f/mwlevdrj" method="POST">
+                    <br>
+                    <input type="text" name="First Name" placeholder="Enter First Name" required><br>
+                    <input type="text" name="Last Name" placeholder="Enter Last Name (Optional)"><br>
+                    <input type="email" name="Email" placeholder="Email" required><br>
+                    <input type="tel" name="Phone" placeholder="Phone No." required><br>
+                    <input type="text" name="Contact" placeholder="Tell Your Problem Or Help" class="reason"
+                        required><br>
+                    <input type="submit" value="SUBMIT" class="submit"><br><br>
+
+                    <p id="my-form-status" style="color: #00adb5; font-weight: bold; margin-top: 10px;"></p>
+                </form>
+            </center>
+        </section>
+<br><br><br><br><br>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <h3>BILAL.DEV</h3>
+                <p style="text-transform: capitalize;">I built this web as a project for test ... JavaScript (JS) shown in console.</p>
+                <p>Email : bilalrehan225@gmail.com</p>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 All Rights Reserved. Made By <span>Muhammad Bilal Rehan</span>.
+            </div>
+        </footer>
+
+       <script>
+        let changebtn = document.querySelector(".changebtn");
+
+        let usernamee = document.querySelector(".usernamee");
+        
+        // Check if name is already saved in browser storage
+        let userinput = localStorage.getItem("portfolio_username");
+      
+        changebtn.onclick = function(){
+            localStorage.removeItem("portfolio_username");
+            localStorage.removeItem("portfolio_userage");
+            window.location.reload();
+        }
+
+        if (!userinput) {
+            userinput = prompt("👋 Welcome! Let's personalize your experience. What's your real name?");
+            if (!userinput || userinput.trim() === "") {
+                userinput = "Visitor";
+            }
+            localStorage.setItem("portfolio_username", userinput);
+        }
+        usernamee.textContent = "Welcome, " + userinput;
+
+        // Check if age is already saved
+        let userage = localStorage.getItem("portfolio_userage");
+        
+        if (!userage) {
+            userage = prompt("📊 Quick check: How old are you? (We'll calculate voting eligibility in the console!)");
+            if (!userage || userage.trim() === "") {
+                userage = "18"; // default fallback
+            }
+            localStorage.setItem("portfolio_userage", userage);
+            alert("🚀 All set! Press F12 or Right Click -> Inspect and open the 'Console' tab to view your customized JavaScript results!");
+        }
+
+        // Logic processing
+        if (userage >= 18){
+            console.log("You Are Eligible To Vote !!! " + `${(userage)}` + " Years Old");
+        } else if (userage < 0) {
+            console.log("Age Can't be below zero");
+        } else if (userage == "") {
+            console.log("Age cant't be in Blank");
+        } else if (isNaN(userage)) {
+            console.log("Age cant't be in alphabets");
+        } else {
+            console.log("You Are Not Eligible To Vote !!! "  + `${(userage)}` + " Years Old");
+        }
+
+        var A = 19;
+        var B = 2;
+        console.log("A = 19");
+        console.log("B = 2");
+        console.log("A * B = " + A*B);
+        console.log("This A While LOOP ");
+        let a = 1;
+        let num = 9;
+        while (a < 11) {
+           console.log(num + "×" + a + "=" + num*a);
+            a += 1;
+        }
+        console.log("All JavaScript Basis Work Done");
+    </script>
+</body>
+
+</html>
